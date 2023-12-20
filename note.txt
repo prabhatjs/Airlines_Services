@@ -1,0 +1,30 @@
+projectname\src (folder)
+--------------------------------------------------
+sequelize db:create || for create db for project;
+
+* every model is table *
+npx sequelize model:generate --name Airplanes --attributes modelNo:string,cap:integer|| it create model in project but not create table  in database 
+
+* how to create table in odm sequelize*
+npx sequelize db:migrate //this cmd use to create table in db 
+
+* how to revert in db if you create wrong columns*
+npx sequelize db:migrate:undo or|| undo:all
+
+
+
+* what is up function in migrations 
+the up function is used to trigger a migration. 
+The up property represents the migration for creating a table in the database.
+
+* what is model level constraints*
+it is javascript level constraints it is check in frontend level and in migration file you can put database level constraints as well .
+ex-allowNull:false
+
+
+mysql Imp*---
+* drop table in sql *
+drop  table flight.airplanes (flight is db nd airplanes is table);
+
+*drop database in mysql*
+drop database flight
