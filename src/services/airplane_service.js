@@ -11,7 +11,7 @@ const airplaneRepo=new AirplaneRepo();
 async function createAirplane(data)
 {
     try {
-        console.log("Air Plane Service");
+        // console.log("Air Plane Service");
          const airplane=await airplaneRepo.create(data);
          return airplane;
     } catch (error) {
@@ -27,8 +27,18 @@ async function getAirplanes(data){
         throw new Error('Can not fetch all the airplanes',StatusCodes.INTERNAL_SERVER_ERROR);
     }
 }
+async function getAirplane(id){
+    try {
+        const airplane=await airplaneRepo.geta(id);
+        return airplane;
+    } catch (error) {
+        throw new Error('Can not fetch id the airplanes',StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
+
 
 module.exports={
     createAirplane,
-    getAirplanes//got to controller 
+    getAirplanes,
+    getAirplane//got to controller 
 }
