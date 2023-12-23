@@ -21,6 +21,50 @@ The up property represents the migration for creating a table in the database.
 it is javascript level constraints it is check in frontend level and in migration file you can put database level constraints as well .
 ex-allowNull:false
 
+* create seeder folder and file *
+seed files are used to inert bulk data in table for testing purpose
+
+*how to add multiple data in db?
+npx sequelize db:seed:all
+npx sequelize db:seed --filename.js one particular function    
+
+*delete Seed data using cmd*
+npx sequelize db:seed:undo:all
+
+example of seed
+----------------------in up function --------------->
+await queryInterface.bulkInsert('Tablename',[{
+    modelNo:'DelhiAirLine'
+    cap:100,
+    createdAt:new Date(),
+    updatedAt:new Date()
+},{
+    ---
+    ---
+    ---
+}
+]);
+
+*if reminder service send to user after 48 hour for web checkin or online boarding email how to handel that ?*
+    then Cron job comes into picture
+    A cron job is a Linux command that schedules tasks to run on a server. 
+    Cron jobs are useful for automating repetitive tasks and performing tasks that need to be run on a schedule.
+     Some examples of cron jobs include: 
+    
+    Running backups
+    Sending emails
+    Performing system maintenance tasks
+    Sending out a notice every morning
+
+
+*what is orchestration layer ?
+An orchestration layer is a component or framework that coordinates and manages the execution of various tasks or services within a larger system. 
+It acts as an intermediary between different components or services to ensure they work together.
+
+
+
+
+
 
 mysql Imp*---
 * drop table in sql *

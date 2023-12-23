@@ -32,7 +32,7 @@ class CrudRepo{
                 throw error;
         }
     }
-    async geta(data)//find dta from tbale using primary key
+    async geta(data)//find  airplan  by (data from tbale using primary key)
     {
         try{
                 const response=await this.model.findByPk(data)
