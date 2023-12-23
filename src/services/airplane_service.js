@@ -32,6 +32,23 @@ async function getAirplane(id){
         const airplane=await airplaneRepo.geta(id);
         return airplane;
     } catch (error) {
+     if(404==StatusCodes.NOT_FOUND)
+        {
+            throw new Error(StatusCodes.NOT_FOUND);
+        }
+        throw new Error('Can not fetch id the airplanes',StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
+
+async function Delete(id){
+    try {
+        const airplane=await airplaneRepo.destroy(id);
+        return airplane;
+    } catch (error) {
+     if(404==StatusCodes.NOT_FOUND)
+        {
+            throw new Error(StatusCodes.NOT_FOUND);
+        }
         throw new Error('Can not fetch id the airplanes',StatusCodes.INTERNAL_SERVER_ERROR);
     }
 }
@@ -40,5 +57,7 @@ async function getAirplane(id){
 module.exports={
     createAirplane,
     getAirplanes,
-    getAirplane//got to controller 
+    getAirplane,
+    Delete//got to controller 
+
 }

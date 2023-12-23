@@ -51,30 +51,61 @@ async function createAirplane(req,res){
 
     async function getAirplane(req,res){
         try {
+            console.log(req.params.id);
             const airplane=await airplaneService.getAirplane(req.params.id);
+            console.log(req.params.id);
+
             return res.status(StatusCodes.OK).json({
                 success:true,
-                message:"get All the Data",
+                message:"get Airplane",
                 data:{
                     airplane
                 }
             })
-        } catch (error) {
+        }
+        catch (error) {
+           console.log(error,error==404);
             return res.status(StatusCodes.INTERNAL_SERVER_ERROR).
             json({
                 success:false,
-                message:"Something wrong to get All Airplane ",
+                message:"Something wrong to get Airplane ",
                 data:{},
                 error:error 
             })
         }
         }
     
- 
+
+
+        async function Delete(req,res){
+            try {
+                const airplane=await airplaneService.Delete(req.params.id);
+                return res.status(StatusCodes.OK).json({
+                    success:true,
+                    message:"Deleted Airplane",
+                    data:{
+                        airplane
+                    }
+                })
+            }
+            catch (error) {
+               console.log(error,error==404);
+                return res.status(StatusCodes.INTERNAL_SERVER_ERROR).
+                json({
+                    success:false,
+                    message:"Can not Find Wrong ID ",
+                    data:{},
+                    error:error 
+                })
+            }
+            }
+        
 
 
 module.exports={
     createAirplane,
     getAirplaes,//got to routes,
-    getAirplane
+    getAirplane,
+    Delete
+
 }

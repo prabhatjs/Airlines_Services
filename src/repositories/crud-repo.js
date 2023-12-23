@@ -1,3 +1,4 @@
+const { StatusCodes } = require("http-status-codes");
 
 
 class CrudRepo{
@@ -25,8 +26,13 @@ class CrudRepo{
                         id:data 
                     }
                 });
+                if(!response)
+                {
+                    throw new Error(StatusCodes.NOT_FOUND);
+                }
                 return response;
         }
+
         catch(error)
         {
                 throw error;
@@ -36,6 +42,11 @@ class CrudRepo{
     {
         try{
                 const response=await this.model.findByPk(data)
+                if(!response)
+                {
+                    throw new Error(StatusCodes.NOT_FOUND);
+                }
+              
                 return response;
         }
         catch(error)
