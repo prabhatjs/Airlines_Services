@@ -100,12 +100,35 @@ async function createAirplane(req,res){
             }
             }
         
+            async function Update(req,res){
+                try {
+                    const airplane=await airplaneService.Update(req.params.id,req.body);
+                    return res.status(StatusCodes.OK).json({
+                        success:true,
+                        message:"Updated Airplane",
+                        data:{
+                            airplane
+                        }
+                    })
+                }
+                catch (error) {
+                   console.log(error,error==404);
+                    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).
+                    json({
+                        success:false,
+                        message:"Can not Find Wrong ID ",
+                        data:{},
+                        error:error 
+                    })
+                }
+                }
 
 
 module.exports={
     createAirplane,
     getAirplaes,//got to routes,
     getAirplane,
-    Delete
+    Delete,
+    Update
 
 }

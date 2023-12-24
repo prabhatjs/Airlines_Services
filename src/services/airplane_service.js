@@ -53,11 +53,20 @@ async function Delete(id){
     }
 }
 
+async function Update(id,data){
+    try {
+        const airplan=await airplaneRepo.update(id,data);
+        return airplan;
+    } catch (error) {
+        throw new Error('can not find id of the Aiplane',StatusCodes.INTERNAL_SERVER_ERROR)
+    }
+}
 
 module.exports={
     createAirplane,
     getAirplanes,
     getAirplane,
-    Delete//got to controller 
+    Delete,
+    Update//got to controller 
 
 }
