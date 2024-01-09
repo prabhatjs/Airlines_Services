@@ -63,7 +63,8 @@ It acts as an intermediary between different components or services to ensure th
 
 
 
-
+*city model add *
+ npx sequelize model:generate --name City --attributes name:string,state:string
 
 
 mysql Imp*---
@@ -72,3 +73,6 @@ drop  table flight.airplanes (flight is db nd airplanes is table);
 
 *drop database in mysql*
 drop database flight
+
+//facing my sql error assuming server is not start 
+cntl+shift+esc -services check mysql80 start or not?

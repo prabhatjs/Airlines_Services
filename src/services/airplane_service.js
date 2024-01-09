@@ -52,12 +52,12 @@ async function Delete(id){
         throw new Error('Can not fetch id the airplanes',StatusCodes.INTERNAL_SERVER_ERROR);
     }
 }
-
+//update take id and what data yu want to change
 async function Update(id,data){
     try {
         const airplan=await airplaneRepo.update(id,data);
         return airplan;
-    } catch (error) {
+    }   catch (error) {
         throw new Error('can not find id of the Aiplane',StatusCodes.INTERNAL_SERVER_ERROR)
     }
 }
