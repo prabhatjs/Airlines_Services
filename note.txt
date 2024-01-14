@@ -66,6 +66,52 @@ It acts as an intermediary between different components or services to ensure th
 *city model add *
  npx sequelize model:generate --name City --attributes name:string,state:string
 
+*Airport model*
+in src folder :-
+npx sequelize model:generate --name Airport --attributes name:string,Acode:string,address:string,cityId:integer
+
+npx sequelize model:generate --name Airplanes --attributes modelNo:string,cap:integer
+
+
+
+
+
+
+Sequelize supports the standard associations: One-To-One, One-To-Many and Many-To-Many.
+--*database level association---------
+To do this, Sequelize provides four types of associations that should be combined to create them:
+example--airpost city belongs to citytable where city id is primary key and in airport cityid is foreign key
+
+
+*one city has many airports but one airports belongs to only one City
+airport model is belongs to city city id is foreign key
+
+--this.belongsTo(models.city,{
+      foreignKey:'cityId',
+      onDelete:'CASCADE',
+      onUpdate:'CASCADE'
+    });
+
+--*javascript level association--
+
+The HasOne association
+The BelongsTo association
+The HasMany association
+The BelongsToMany association
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 mysql Imp*---
 * drop table in sql *

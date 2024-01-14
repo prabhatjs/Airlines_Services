@@ -6,6 +6,7 @@ const router=express.Router();
 
 router.post('/',CitiesControler.createCity);
 router.get('/',CitiesControler.getCities)
+router.get('/:id',CitiesControler.getCity)
 router.delete('/:id',CitiesControler.Delete);
 router.patch('/:id',CitiesControler.Update);
 
