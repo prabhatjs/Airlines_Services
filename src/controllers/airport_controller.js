@@ -95,10 +95,10 @@ async function CreateAirport(req,res){
             })
         }
     }
-    async function FindAllAirports(){
+    async function FindAllAirports(req,res){
         try {
             const airport=await airportService.FindAllAirports();
-        return res.status(StatusCodes.OK).json({
+             return res.status(StatusCodes.OK).json({
             success:true,
             message:"get All the Data",
             data:{

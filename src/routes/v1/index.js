@@ -3,6 +3,7 @@ const {infoController}=require('../../controllers');
 const airplaneRoutes=require('./airplane_route');
 const cityRoutes=require('./cities_route');
 const airportRoutes=require('./airport_route');
+const flightRouter=require('./flight_route');
 
 const router=express.Router();
 
@@ -12,5 +13,6 @@ console.log("Check Api ROute");
 router.use('/airplanes',airplaneRoutes);
 router.use('/city',cityRoutes);
 router.use('/airport',airportRoutes);
+router.use('/flight',flightRouter);
 
  module.exports=router;

@@ -34,7 +34,7 @@ module.exports = {
         },
         onDelete:'CASCADE'
       },
-      //ARRIVAL AIRPORT ID REFRENCE HOGI AIRPORTS SE AIRPORT 
+      //ARRIVAL AIRPORT ID REFRENCE HOGI AIRPORTS SE AIRPORT /define foregin key at the time of model creation
       arrivalAirportId: {
         type: Sequelize.STRING,
         allowNull:false,

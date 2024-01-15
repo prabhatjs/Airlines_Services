@@ -44,9 +44,9 @@ try {
             throw new Error('Can not fetch id the Airport',StatusCodes.INTERNAL_SERVER_ERROR);
     }
     }
-        async function FindAllAirports(data){
+        async function FindAllAirports(){
         try {
-            const airport=await AirportObj.getAll(data);
+            const airport=await AirportObj.getAll();
             return airport;
         } catch (error) {
             throw new Error('Can not fetch all the Airports',StatusCodes.INTERNAL_SERVER_ERROR);

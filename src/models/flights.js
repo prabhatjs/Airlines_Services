@@ -10,20 +10,21 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+     // define foregin key at the time of model creation
       // define association here
       this.belongsTo(models.Airplanes,{
-        foreignKey:'airplaneid',
+        foreignKey:'id',
+        as: 'airplaneDetail',
          onDelete:'CASCADE'
-
       });
-      //2nd foregin key
-      this.belongsTo(models.Airports,{
+      this.belongsTo(models.Airport,{
         foreignKey:'departureAirportId',
+        as: 'Departure_Airport_Detail',
         onDelete:'CASCADE'
       });
-       //2nd foregin key
-       this.belongsTo(models.Airports,{
+       this.belongsTo(models.Airport,{
         foreignKey:'arrivalAirportId',
+        as: 'Arrivale_airport_details',
          onDelete:'CASCADE'
       });
     }
