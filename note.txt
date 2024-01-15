@@ -45,6 +45,13 @@ await queryInterface.bulkInsert('Tablename',[{
 }
 ]);
 
+
+
+* create association file in migrations
+cmd-npx sequelize migration:generate --name update-flight-airplanes-association
+in this file we define the foreign key association and how link one table to another table using sequelize
+
+
 *if reminder service send to user after 48 hour for web checkin or online boarding email how to handel that ?*
     then Cron job comes into picture
     A cron job is a Linux command that schedules tasks to run on a server. 
@@ -72,6 +79,7 @@ npx sequelize model:generate --name Airport --attributes name:string,Acode:strin
 
 npx sequelize model:generate --name Airplanes --attributes modelNo:string,cap:integer
 
+px sequelize model:generate --name Flights --attributes flightnumber:string,airplaneid:integer,departureAirportId:integer,arrivalAirportId:integer,departureTime:date,arrivalDate:date,price:integer,boardingGate:string,totalseats:integer
 
 
 
